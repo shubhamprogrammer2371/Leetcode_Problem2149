@@ -1,0 +1,22 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* rearrangeArray(int* nums, int numsSize, int* returnSize){
+    int* arr = (int*)malloc(sizeof(int)*numsSize);
+    *returnSize = numsSize;
+    int posIndx = 0 , negIndx = 1;
+    for( int i = 0 ; i < numsSize ; i++)
+    {
+        if(nums[i] > 0)
+        {
+            arr[posIndx] = nums[i];
+            posIndx += 2;
+        }
+        else
+        {
+            arr[negIndx] = nums[i];
+            negIndx += 2;
+        }
+    }
+    return arr;
+}
